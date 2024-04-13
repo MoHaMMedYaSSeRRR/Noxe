@@ -1,0 +1,14 @@
+<section class="container mt-2">
+    <div class="row  d-flex justify-content-center g-4 align-items-center">
+        <div class="col-md-4">
+            <img class="w-100" [src]="path+personDetails.profile_path" alt="">
+        </div>
+        <div class="col-md-8">
+            <h1>{{personDetails.name}}</h1>
+            <h4>Birth Day : {{personDetails.birthday}}</h4>
+            <h4>Place Of Birth : {{personDetails.place_of_birth}}</h4>
+            <h4>Popularity: {{personDetails.popularity}}</h4>
+            <p class="main-color">{{personDetails.biography}}</p>
+        </div>
+    </div>
+</section>

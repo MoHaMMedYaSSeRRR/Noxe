@@ -1,0 +1,23 @@
+<section class="container px-3 ">
+    <div class="row align-items-center justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="brdr w-25"></div>
+            <h2 class="mt-3">Trending People <br>
+                To Watch Right Now</h2>
+                <p class="main-color" >Most watched people by Days</p>
+                <div class="brdr w-100"></div>
+            </div>
+           
+                <div *ngFor="let person of person" class="col-md-2">
+                    <div role="button" class="person" [routerLink]="['/persondetails',person.id]">
+                        <img class="w-100" [src]="path + person.profile_path" alt="">
+                        <h3 class="h6 mt-3 text-center">{{person.name}}</h3>
+                       
+                    </div>
+                </div>
+             
+    </div>
+</section>
+
+
+

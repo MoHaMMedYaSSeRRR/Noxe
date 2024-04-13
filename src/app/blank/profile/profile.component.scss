@@ -1,0 +1,32 @@
+.profile{
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+@media screen and (min-width: 0) and (max-width: 720px) {
+        .profile {
+        width: 100%;
+        padding: 20px;
+        margin: 0 auto;
+
+        h2{
+            font-size: small;
+        }
+    }
+}
+
+
+@media screen and (min-width:720px) and (max-width: 1000px) {
+    .profile {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: red;
+    margin: auto;
+
+    h2{
+        font-size: x-large;
+    }
+}
+}

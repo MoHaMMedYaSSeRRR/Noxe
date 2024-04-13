@@ -1,0 +1,32 @@
+<div class="w-75 mx-auto mt-5 ">
+    <h2 class="my-3">Login Now </h2>
+
+    <div *ngIf="apierror" class="alert alert-danger rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+        <p class="mb-0">{{apierror}}</p>
+    </div>
+    <form [formGroup]="LoginForm" (ngSubmit)="handleLogin(LoginForm)">
+
+
+        <div class="form-item mt-2">
+            <label for="email">Email :</label>
+            <input type="email" formControlName="email" class="form-control"  id="email" >
+        </div>
+        <div *ngIf="LoginForm.get('email')?.errors && LoginForm.get('email')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="LoginForm.get('email')?.getError('required')" class="m-0"> email is Required </p>
+            <p *ngIf="LoginForm.get('email')?.getError('email')" class="m-0"> email is  inValid</p>
+        </div>
+
+        <div class="form-item mt-2">
+            <label for="password">Password :</label>
+            <input type="password" formControlName="password" class="form-control"  id="password" >
+        </div>
+        <div *ngIf="LoginForm.get('password')?.errors && LoginForm.get('password')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="LoginForm.get('password')?.getError('required')" class="m-0"> password is Required </p>
+        </div>
+           
+        <button  [disabled]="LoginForm.invalid" class="btn btn-info text-white d-block ms-auto mt-3" >
+            <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">Login</span></button>
+
+    </form>
+</div>

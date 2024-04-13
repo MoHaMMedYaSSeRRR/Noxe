@@ -1,0 +1,61 @@
+<div class="w-75 mx-auto mt-5 ">
+    <h2 class="my-3">Register Now </h2>
+
+    <div *ngIf="apierror" class="alert alert-danger rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+        <p class="mb-0">{{apierror}}</p>
+    </div>
+    <form [formGroup]="RegisterForm" (ngSubmit)="handleRegister(RegisterForm)">
+
+        <div class="form-item">
+            <label for="f-name">Frist Name :</label>
+            <input type="text" formControlName="first_name" class="form-control" id="f-name">
+        </div>
+        <div *ngIf="RegisterForm.get('first_name')?.errors && RegisterForm.get('first_name')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="RegisterForm.get('first_name')?.getError('required')" class="m-0"> first_name is Required </p>
+            <p *ngIf="RegisterForm.get('first_name')?.getError('first_name')" class="m-0"> first_name minlingth  is 3 </p>
+            <p *ngIf="RegisterForm.get('first_name')?.getError('first_name')" class='m-0'> first_name MaxLength is 10</p>
+        </div>
+
+        <div class="form-item mt-2 ">
+            <label for="L-name">Last Name :</label>
+            <input type="text" formControlName="last_name" class="form-control"  id="L-name" >
+        </div>
+        <div *ngIf="RegisterForm.get('last_name')?.errors && RegisterForm.get('last_name')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="RegisterForm.get('last_name')?.getError('required')" class="m-0"> last_name is Required </p>
+            <p *ngIf="RegisterForm.get('last_name')?.getError('last_name')" class="m-0"> last_name minlingth  is 3 </p>
+            <p *ngIf="RegisterForm.get('last_name')?.getError('last_name')" class='m-0'> last_name MaxLength is 10</p>
+        </div>
+
+        <div class="form-item mt-2">
+            <label for="email">Email :</label>
+            <input type="email" formControlName="email" class="form-control"  id="email" >
+        </div>
+        <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="RegisterForm.get('email')?.getError('required')" class="m-0"> email is Required </p>
+            <p *ngIf="RegisterForm.get('email')?.getError('email')" class="m-0"> email is  inValid</p>
+        </div>
+        
+        <div class="form-item mt-2">
+            <label for="age">Age :</label>
+            <input type="number" formControlName="age" class="form-control"  id="age" >
+        </div>
+        <div *ngIf="RegisterForm.get('age')?.errors && RegisterForm.get('age')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="RegisterForm.get('age')?.getError('required')" class="m-0"> age is Required </p>
+            <p *ngIf="RegisterForm.get('age')?.getError('pattern')" class="m-0"> age must between 18 to 99</p>
+        </div>
+
+        <div class="form-item mt-2">
+            <label for="password">Password :</label>
+            <input type="password" formControlName="password" class="form-control"  id="password" >
+        </div>
+        <div *ngIf="RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched" class="alert small  alert-danger  rounded-3 w-50 mx-auto p-2 mb-0 text-center">
+            <p *ngIf="RegisterForm.get('password')?.getError('required')" class="m-0"> password is Required </p>
+            <p *ngIf="RegisterForm.get('password')?.getError('pattern')" class="m-0"> password must start with [A-Z] </p>
+        </div>
+           
+        <button [disabled]="RegisterForm.invalid" class="btn btn-info text-white d-block ms-auto mt-3" >
+            <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading">Register</span></button>
+
+    </form>
+</div>

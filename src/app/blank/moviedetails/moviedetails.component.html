@@ -1,0 +1,22 @@
+<section class="container mt-2">
+    <div class="row  d-flex justify-content-center g-4 align-items-center">
+        <div class="col-md-4">
+            <img class="w-100" [src]="path+movieDetails.poster_path" alt="">
+        </div>
+        <div class="col-md-8">
+            <h1>{{movieDetails.title}}</h1>
+            <h5 class="main-color">{{movieDetails.tagline}}</h5>
+            <div *ngIf="genres" class="genres mt-3">
+                <p  *ngFor="let item of genres">
+                {{item.name}}
+                </p>
+            </div>
+            <h6>Vote : {{movieDetails.vote_average}}</h6>
+            <h6>Vote Count : {{movieDetails.vote_count}}</h6>
+            <h6>Realese Data : {{movieDetails.release_date}}</h6>
+            <h6>Popularity: {{movieDetails.vote_average}}</h6>
+
+
+        </div>
+    </div>
+</section>

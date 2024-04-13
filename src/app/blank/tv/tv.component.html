@@ -1,0 +1,23 @@
+<section class="container px-3 ">
+    <div class="row align-items-center justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="brdr w-25"></div>
+            <h2 class="mt-3">Trending Tv <br>
+                To Watch Right Now</h2>
+                <p class="main-color" >Most watched Tv by Days</p>
+                <div class="brdr w-100"></div>
+            </div>
+           
+                <div *ngFor="let tv of Tv" class="col-md-2">
+                    <div role="button" class="tv" [routerLink]="['/tvdetails',tv.id]">
+                        <img class="w-100" [src]="path + tv.poster_path" alt="">
+                        <h3 class="h6 mt-3 text-center">{{tv.name}}</h3>
+                        <div class="vote">
+                            <span  >{{tv.vote_average | number:'1.0-1'}}</span>
+
+                        </div>
+                    </div>
+                </div>
+             
+    </div>
+</section>
